@@ -6,4 +6,5 @@ image.addEventListener('mousemove', function(evt){
 
 image.addEventListener('mouseleave', function(evt){
 	image.style.backgroundPosition= "center center";
-})
+});
+
