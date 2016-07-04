@@ -5,6 +5,8 @@
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="css/style.css" type="text/css">
 		<link rel="stylesheet" href="css/grid.css" type="text/css">	
+		<link rel="stylesheet" href="css/font-awesome.css">
+		<script src="js/modernizr-custom.js"></script>
 	</head>
 
 	<body>
@@ -36,28 +38,33 @@
 				
 				<div class="col-6">
                     <div id="map"></div>
-                    <script>
-                          function initMap() {
-                       		var mapDiv = document.getElementById('map');
-                       		var map = new google.maps.Map(mapDiv, {
-                            center: {lat: 42.762480, lng: -83.283406},
-                            zoom: 16
-                           });
-                         }
+                    	<script>
+	                        function initMap() {
+	                       		var mapDiv = document.getElementById('map');
+	                       		var map = new google.maps.Map(mapDiv, {
+	                            center: {lat: 42.762480, lng: -83.283406},
+	                            zoom: 16
+	                           });
+	                        }
+                   		</script>
+                  		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-jpiiZm0kg4wbYwPvUtNZvyLbiNcz6p8&callback=initMap">
                    </script>
-                   <script async defer
-                       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-jpiiZm0kg4wbYwPvUtNZvyLbiNcz6p8&callback=initMap">
-                   </script>
+                         
                 </div>
 
 				<div class="col-6">
-					<form class="form" name="contact-batman" method="get">
+					<form id="form-contact" class="form" name="contact-batman" method="get" novalidate>
 						<div class="form-row">
 							<label for="nombre">Nombre:</label>
 							<input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
-
+							<!--
 							<label for="apellidos">Apellidos:</label>
-							<input type="text" name="apellidos" id="apellidos" placeholder="Apellidos" required>
+							<input type="text" name="apellidos" id="apellidos" placeholder="Apellidos" required> -->
+							<div class="form-row">
+								<span>¿Tienes apellidos?</span>
+								<label for="apellidos_si">Si</label><input id="apellidos_si" type="radio" name="tienes_apellidos" value="yes" required>
+								<label for="apellidos_no">No</label><input id="apellidos_no" type="radio" name="tienes_apellidos" value="no" required>
+							</div>
 						</div>
 
 						<div class="form-row">
@@ -76,6 +83,14 @@
 							<label for="ejercito">Tamaño del ejercito</label>
 							<input type="number" id="ejercito" name="ejercito" min="20" required>
 						</div>
+						
+						<div class="form-row" id="too-many-enemies">
+							<span>Son demasiados enemigos. ¿Estás seguro?</span>
+							<label for="seguro_si">Si</label>
+							<input type="radio" id="seguro_si" name="estas_seguro" value="yes" required>
+							<label for="seguro_no">No</label>
+							<input type="radio" id="seguro_no" name="estas_seguro" value="no" required>
+						</div>	
 
 						<div class="form-row">
 							<label for="fecha">Fecha de la misión</label>
@@ -83,7 +98,7 @@
 						</div>
 
 						<div class="form-row">
-							<input type="submit" name="Enviar">
+							<button type="submit" id="enviar">Enviar</button>
 						</div>
 					</form>
 				</div>			
@@ -128,4 +143,6 @@
 		</footer>
 
 	</body>
+	<script src="js/form.js"></script>
+
 </html>

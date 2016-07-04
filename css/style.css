@@ -201,7 +201,7 @@ input {
 	border-radius: 4px;
 }
 
-input[type=button], input[type="submit"], input[type=reset] {
+input[type=button], input[type="submit"], input[type=reset], button {
 	background-color: #4CAF50;
 	border: none;
 	color: #FFF;
@@ -210,6 +210,10 @@ input[type=button], input[type="submit"], input[type=reset] {
 	margin: 4px 2px;
 	cursor: pointer;
 	border-radius: 0px;
+}
+
+#too-many-enemies {
+	display: none;
 }
 
 table {
@@ -269,4 +273,16 @@ tbody > tr:hover{
 	100% {
 		opacity: 1;
 	}
+}
+
+.no-flexbox .transport {
+	overflow: auto;
+}
+
+.no-flexbox .transport .item-1 {
+	float: left;	
+}
+
+.no-flexbox .transport .item-2 {
+	float: right;	
 }
